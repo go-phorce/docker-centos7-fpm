@@ -77,9 +77,11 @@ echo "RPM_AFTER_INSTALL=$RPM_AFTER_INSTALL"
 echo "RPM_URL=$RPM_URL"
 echo "RPM_SUMMARY=$RPM_SUMMARY"
 
+pwd && ls
 cd /rpm/$RPM_NAME && fpm -s dir -t rpm \
 	-n $RPM_NAME \
 	-m $RPM_MAINTAINER \
+    -p ../dist/ \
 	--rpm-os linux \
 	--verbose \
 	--epoch $RPM_EPOCH \
